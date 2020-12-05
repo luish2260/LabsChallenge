@@ -1,16 +1,18 @@
 const express = require('express');//estoy requiriendo el módulo express
+const cors = require('cors');//estoy requiriendo el módulo cors
+const fetch = require("node-fetch");//estoy requiriendo el módulo node fetch
 const app = express();//y lo estoy empezando a utilizar
 
-app.get('/',(req,res) => {
-  res.send('Hola gato!');
-});
+app.use(cors()); //esto es un middleware
 
-app.get('/about',(req,res) => {
-  res.send('Hola gato!, estas en /about!');
-});
+app.get('/api/search',(req,res) => {
+  console.log(req.query.q);
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
+  .then((res) => res.json())
+  .then((data) => {
+    res.send(data);
+  });
 
-app.get('/about/tuvieja22',(req,res) => {
-  res.send('Hola gato!, estas en /about/tuvieja22!');
 });
 
 app.listen(5000,() => {
