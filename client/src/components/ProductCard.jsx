@@ -17,7 +17,7 @@ const ProductCard = (props) => {
 				<h6 style={{textAlign:"center", color:"red"}}>stock: {props.availableQuantity} Condición: {props.condition === 'new' ? 'Nuevo' : 'Usado'}</h6>
 				</div>
 		</div>
-	)
-}
+	);
+};
 
 export default ProductCard;

@@ -26,4 +26,4 @@ return (
 </div>
 </footer>
 )
-} 
+};

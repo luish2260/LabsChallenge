@@ -13,7 +13,6 @@ const Catalogo = () => {
 	const res = useSelector(store => store.productos.array);
 	console.log(res);
 	
-
 	return (
 		<div>
 			<div className="row">
@@ -41,7 +40,7 @@ const Catalogo = () => {
 					  </div>
 			</div>
 			<div className="row">
-				<div >
+				<div>
 				
 				</div>
 			</div>
@@ -52,6 +51,6 @@ const Catalogo = () => {
 			</div>
 		</div>
 	)
-}
+};
 
 export default Catalogo;

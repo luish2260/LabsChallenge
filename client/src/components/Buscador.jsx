@@ -8,14 +8,14 @@ export class Buscador extends Component {
     this.state = {
       title: ""
     };
-  }
+  };
   handleChange(e) {
     this.setState({ title: e.target.value });
-  }
+  };
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); //para evitar el comportamiento por defecto
     this.props.obtenerProductos(this.state.title);
-  }
+  };
 
   render() {
     const { title } = this.state;
@@ -52,8 +52,8 @@ export class Buscador extends Component {
         </nav>
       </div>
     );
-  } // fin del render
-}
+  }; // fin del render
+};
 
 function mapStateToProps(state) {
   return {

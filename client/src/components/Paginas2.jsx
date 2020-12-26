@@ -33,7 +33,7 @@ const Paginas = () => {
   if (prodFiltrados.length > 0 && interruptor === false) {
     productos = false;
     leyenda = null;
-  }
+  };
 
   return (
     <div>
