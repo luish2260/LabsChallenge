@@ -40,7 +40,7 @@ const Paginas = () => {
       <div className="row">
         {productos.length > 0
           ? productos.map((e) => (
-              <div className="col s13 m6 l4 " key={e.id}>
+              <div className="col s13 m6 l4" key={e.id}>
                 <ProductCard
                   img={e.thumbnail}
                   title={e.title}

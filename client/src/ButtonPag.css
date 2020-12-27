@@ -4,9 +4,8 @@
   text-align: center;
   width: 100px;
   padding: 0,5px;
-  font-size: 17px;
+  font-size: 20px;
   color: #080808;
- 
   font-weight: 200;
   border: 1px  #def415;
   text-transform: none;
@@ -14,7 +13,6 @@
   cursor: pointer;
   border-radius: 80px;
   transition: 1,8s;
-
 }
 
 .button:hover

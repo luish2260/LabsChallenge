@@ -4,7 +4,6 @@ import '../Button.css';
 import {useSelector, useDispatch} from 'react-redux';
 import {paraFiltrarUsados, paraFiltrarNuevos, paraFiltrarMayorP, paraFiltrarMenorP, obtenerProductos} from '../redux/searchDucks';
 
-
 const Catalogo = () => {
 	
 	const value = useSelector(store => store.productos.value);
@@ -24,7 +23,7 @@ const Catalogo = () => {
 				</button>
 				
 				<button type="submit" className="btn yellow button" onClick={() => dispatch(paraFiltrarMayorP(value))}>
-						<i className="material-icons ">attach_money</i>Mayor a Menor
+						<i className="material-icons">attach_money</i>Mayor a Menor
           			</button> 
 					   <button type="submit" className="btn yellow button" onClick={() => dispatch(obtenerProductos(value))}>
 					Todos
