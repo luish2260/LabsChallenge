@@ -1,9 +1,7 @@
 import React from 'react';
-import Paginas2 from './Paginas2';
-//import '../Button.css';
-import { useSelector,useDispatch } from 'react-redux';
-//import {paraFiltrarUsados, paraFiltrarNuevos, paraFiltrarMayorP, paraFiltrarMenorP, obtenerProductos} from '../redux/searchDucks';
-
+import Paginas from './Paginas.jsx';
+import {useSelector, useDispatch} from 'react-redux';
+import {paraFiltrarUsados, paraFiltrarNuevos, paraFiltrarMayorP, paraFiltrarMenorP, obtenerProductos} from '../redux/actions.js';
 
 const Catalogo = () => {
 	
@@ -47,7 +45,7 @@ const Catalogo = () => {
 			</div>
 			<div className="content">
 				<div className="row">
-				{res ? <Paginas2 p={res.results} /> : null}
+				{res ? <Paginas p={res.results} /> : null}
 				</div>
 			</div>
 		</div>

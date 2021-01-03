@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import ProductCard from "./ProductCard";
-import { useDispatch, useSelector } from "react-redux";
-/* import {
-  obtenerProductos,
-  siguientesProductos,
-  anterioresProductos,
-  siguientesProdFil,
-  anterioresProdFil,
-} from "../redux/searchDucks";
- */
+import React from "react";
+import ProductCard from './ProductCard.jsx';
+import { useDispatch,useSelector } from 'react-redux';
+import { siguientesProductos,
+         anterioresProductos,
+         siguientesProdFil,
+         anterioresProdFil } 
+         from '../redux/actions.js';
 
 const Paginas = () => {
+
   const dispatch = useDispatch();
 
   var productos = useSelector((store) => store.productos.array);
@@ -25,7 +23,7 @@ const Paginas = () => {
   console.log(value);
 
   var leyenda = (
-    <h3 style={{ textAlign: "center", marginTop: "140px" }}>
+    <h3 style={{ textAlign: "justify-content", marginTop: "140px" }}>
       Tu búsqueda aparecerá aquí
     </h3>
   );
@@ -34,10 +32,10 @@ const Paginas = () => {
     productos = false;
     leyenda = null;
   }
-
+  
   return (
     <div>
-      <div className="row">
+    <div className="row">
         {productos.length > 0
           ? productos.map((e) => (
               <div className="col s13 m6 l4 " key={e.id}>

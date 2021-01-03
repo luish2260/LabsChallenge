@@ -1,22 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-//import { obtenerProductos } from "../redux/searchDucks";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { obtenerProductos } from '../redux/actions';
 
 export class Buscador extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
-      title: ""
+      title:''
     };
   }
-  handleChange(event) {
-    this.setState({ title: event.target.value });
+  handleChange (e) {
+    this.setState({title:e.target.value});
   }
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.obtenerProductos(this.state.title);
   }
-
   render() {
     const { title } = this.state;
     return (
@@ -24,7 +23,7 @@ export class Buscador extends Component {
         <nav className="row">
           <div className="blk col s8 push-s2">
             {" "}
-            {/* Con esta clase hago que el buscador se centre y no ocupe toda la pantalla */}
+            
             <div className="center-align">
               <div className="blk input-field col s12">
                 <form
@@ -52,8 +51,8 @@ export class Buscador extends Component {
         </nav>
       </div>
     );
-  }
-}
+  };
+};
 
 function mapStateToProps(state) {
   return {

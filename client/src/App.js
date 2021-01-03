@@ -5,19 +5,21 @@ import Buscador from './components/Buscador.jsx';
 import Footer from './components/Footer.jsx';
 import './App.css';
 import { Provider } from 'react-redux';
-//import generateStore from './redux/store';
+import generateStore from './redux/store';
 
 class App extends Component {
  render() {
-  //const store = generateStore(); // CON ESTO GUARDO LA FUNCION DE GENERAR EL STORE EN UNA CONSTANTE
+  const store = generateStore(); // CON ESTO GUARDO LA FUNCION DE GENERAR EL STORE EN UNA CONSTANTE
    return (
-     <Provider /*store = {store}*/> {/*EN ESTE SECTOR USO LO DE REDUX, ENCAPSULA TODO EL COMPOONENTE APP*/}
-      <Router>
-       <Route exact path="/" component={Buscador} />
-       <Route path="/" render={() => <Catalogo state={this.state} />} />
-       <Route exact path="/" component={Footer} />
-      </Router>
-     </Provider>
+      
+    <Provider store= {store}> {/*EN ESTE SECTOR USO LO DE REDUX, ENCAPSULA TODO EL COMPOONENTE APP*/}
+    <Router>
+    <Route exact path="/" component={Buscador} />
+    <Route path="/" render={() => <Catalogo state={this.state} />} />
+    <Route exact path="/" component={Footer} />
+    </Router>
+    </Provider>
+   
    );
  }
 }
