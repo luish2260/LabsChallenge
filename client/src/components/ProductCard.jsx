@@ -5,7 +5,7 @@ return (
 <div className="card z-depth-2">
 <div className="row">
 <div className="card-image waves-block waves-light center-align" >
-<img src={props.img} alt="" className="activator center-align" />
+<img src={props.img} className="activator center-align" alt="img not found" />
 </div>
 </div>
 <div className="card-content grey-text">
