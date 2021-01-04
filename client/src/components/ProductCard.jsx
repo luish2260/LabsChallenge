@@ -13,8 +13,8 @@ return (
 </div>
 <br/>
 <div>
-<h6 style={{textAlign:"center"}}>${props.price} {props.currentId}</h6>
-<h6 style={{textAlign:"center", color:"red"}}>stock: {props.availableQuantity} Condición: {props.condition === 'new' ? 'Nuevo' : 'Usado'}</h6>
+<h5 style={{textAlign:"center"}}>${props.price} {props.currentId}</h5>
+<h5 style={{textAlign:"center", color:"red"}}>stock: {props.availableQuantity} Condición: {props.condition === 'new' ? 'Nuevo' : 'Usado'}</h5>
 </div>
 </div>
 )};
