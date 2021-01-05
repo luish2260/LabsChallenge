@@ -19,12 +19,11 @@ dispatch({
 type: OBTENER_PRODUCTOS,
 payload: res.data.results,
 value: valor
-});
+}
+);
 } 
 
-catch (err) {
-console.log(err);
-}
+catch (err) { console.log(err) }
 
 };
 
@@ -61,18 +60,15 @@ try {
 const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + anteriores + '&limit=30')
 dispatch({
 type:ANTERIORES_PRODUCTOS,
-payload: {
-array:res.data.results,
-offset: anteriores
-},
+payload: { array:res.data.results, offset: anteriores },
 value: valor
-})
+}
+);
 } 
 catch (err) {
-console.log(err)
+console.log(err);
 }
 }
-  
 //Ver usados
 export const paraFiltrarUsados = (valor) => async (dispatch, getState) => {
   
@@ -145,7 +141,7 @@ const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offs
 dispatch({
 type:ANTERIORES_PRODUCTOS_FILTRADOS,
 payload: { resFiltrados:res.data.results, offset: anteriores },
-value:valor
+value: valor
 }
 );
 } 
