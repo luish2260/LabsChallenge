@@ -9,161 +9,158 @@ import { OBTENER_PRODUCTOS,
          PARA_FILTRAR_MENOR_PRECIO,
          PARA_FILTRAR_MAYOR_PRECIO } from './const_reducers.js';
 
-//::::: OBTENER PRODUCTOS (action creators)
+// OBTENER PRODUCTOS
 export const obtenerProductos = (valor) => async (dispatch, getState) => {
 
 try {
     
-    const res = await axios.get('http://localhost:5000/api/search/' + valor + '&limit=30')
-    dispatch({
-      type: OBTENER_PRODUCTOS,
-      payload: res.data.results,
-      value: valor
-      
-  });
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&limit=30')
+dispatch({
+type: OBTENER_PRODUCTOS,
+payload: res.data.results,
+value: valor
+});
 } 
 
 catch (err) {
-  console.log(err);
+console.log(err);
 }
+
 };
 
 //:::: SIGUIENTES Y ANTERIORES
 
 export const siguientesProductos = (valor) => async (dispatch, getState) => {
 
-  const offset = getState().productos.offset
-  const siguientes = offset + 30
+const offset = getState().productos.offset;
+const siguientes = offset + 30;
+
+try {
+
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
+dispatch({
+type:SIGUIENTES_PRODUCTOS,
+payload: { array:res.data.results, offset: siguientes },
+value: valor
+}
+);
+} 
+
+catch (err) {
+console.log(err);
+}
+}
   
-  try {
-      
-      const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
-      dispatch({
-        type:SIGUIENTES_PRODUCTOS,
-        payload: {
-         array:res.data.results,
-         offset: siguientes,
-         value: valor
-         }
-      });
-  } 
+export const anterioresProductos = (valor) => async (dispatch, getState) => {
+
+const offset = getState().productos.offset;
+const anteriores = offset - 30;
   
-  catch (err) {
-      console.log(err);
-  }
-  }
+try {
+
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + anteriores + '&limit=30')
+dispatch({
+type:ANTERIORES_PRODUCTOS,
+payload: {
+array:res.data.results,
+offset: anteriores
+},
+value: valor
+})
+} 
+catch (err) {
+console.log(err)
+}
+}
   
+//Ver usados
+export const paraFiltrarUsados = (valor) => async (dispatch, getState) => {
   
-  export const anterioresProductos = (value) => async (dispatch, getState) => {
+try {
+
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&limit=30') 
+dispatch({
+type:PARA_FILTRAR_USADOS,
+payload: res.data.results.filter(prod => prod.condition === 'used'),
+value: valor
+})} 
+
+catch (err) {
+console.log(err)
+}
+}
   
-  
-  // console.log('getState', getState().productos.limit)
-  const offset = getState().productos.offset
-  const anteriores = offset - 30
-  
-  try {
-      const res = await axios.get('http://localhost:5000/api/search/' + value + '&offset=' + anteriores + '&limit=30') // busqueda luego de q= + req.query.q + 
-  
-          dispatch({
-          type:ANTERIORES_PRODUCTOS,
-          payload: {
-              array:res.data.results,
-              offset: anteriores
-          }
-      })
-  } catch (err) {
-      console.log(err)
-  }
-  }
-  
-  //Ver usados
-  export const paraFiltrarUsados = (valor) => async (dispatch, getState) => {
-  
-  try {
-          const res = await axios.get('http://localhost:5000/api/search/' + valor) // busqueda luego de q= + req.query.q + 
-  
-              dispatch({
-              type:PARA_FILTRAR_USADOS,
-              payload: res.data.results.filter(producto => producto.condition === 'used'),
-              value: valor
-              
-          })
-      } catch (err) {
-          console.log(err)
-      }
-  }
-  
-  //Ver nuevos
-  export const paraFiltrarNuevos = (valor) => async (dispatch, getState) => {
-  
-  try {
-          const res = await  axios.get('http://localhost:5000/api/search/' + valor) // busqueda luego de q= + req.query.q + 
-  
-              dispatch({
-              type:PARA_FILTRAR_NUEVOS,
-              payload: res.data.results.filter(producto => producto.condition === 'new'),
-              value: valor
-              
-          })
-      } catch (err) {
-          console.log(err)
-      }
-  }
+//nuevos
+export const paraFiltrarNuevos = (valor) => async (dispatch, getState) => {
+
+try {
+
+const res = await  axios.get('http://localhost:5000/api/search/' + valor + '&limit=30') 
+dispatch({
+type:PARA_FILTRAR_NUEVOS,
+payload: res.data.results.filter(prod => prod.condition === 'new'),
+value: valor
+})} 
+
+catch (err) {
+console.log(err)
+}
+}
   
   //:::: SIGUIENTES Y ANTERIORES DE PROD FILTRADOS
   
   export const siguientesProdFil = (valor) => async (dispatch, getState) => {
   
   
-  // console.log('getState', getState().productos.limit)
+  
   const offset = getState().productos.offsetFil
   const siguientes = offset + 30
   
   try {
-      const res = await  axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
+      
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') 
   
-          dispatch({
-          type:SIGUIENTES_PRODUCTOS_FILTRADOS,
-          payload: {
-              resFiltrados:res.data.results,
-              offset: siguientes,
-              value: valor
-          }
-      })
-  } catch (err) {
-      console.log(err)
-  }
-  }
+dispatch({
+type:SIGUIENTES_PRODUCTOS_FILTRADOS,
+payload: { resFiltrados:res.data.results, offset: siguientes },
+value: valor
+}
+);
+}
+
+catch (err) {
+console.log(err)
+}
+}
   
+export const anterioresProdFil = (valor) => async (dispatch, getState) => {
   
-  export const anterioresProdFil = (value) => async (dispatch, getState) => {
+const offset = getState().productos.offsetFil
+const anteriores = offset - 30
   
+try {
+      
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + anteriores + '&limit=30') 
   
-  // console.log('getState', getState().productos.limit)
-  const offset = getState().productos.offsetFil
-  const anteriores = offset - 30
-  
-  try {
-      const res = await axios.get('http://localhost:5000/api/search/' + value + '&offset=' + anteriores + '&limit=30') // busqueda luego de q= + req.query.q + 
-  
-          dispatch({
-          type:ANTERIORES_PRODUCTOS_FILTRADOS,
-          payload: {
-              resFiltrados:res.data.results,
-              offset: anteriores
-          }
-      })
-  } catch (err) {
-      console.log(err)
-  }
-  }
+dispatch({
+type:ANTERIORES_PRODUCTOS_FILTRADOS,
+payload: { resFiltrados:res.data.results, offset: anteriores },
+value:valor
+}
+);
+} 
+
+catch (err) {
+console.log(err)
+}
+}
   
   //FILTROS DE PRECIO ASC Y DESC
   
   export const paraFiltrarMenorP = (valor) => async (dispatch, getState) => {
   
   try {
-          const res = await  axios.get('http://localhost:5000/api/search/' + valor) // busqueda luego de q= + req.query.q + 
+          const res = await axios.get('http://localhost:5000/api/search/' + valor + '&limit=30') 
   
               dispatch({
               type:PARA_FILTRAR_MENOR_PRECIO,
@@ -179,7 +176,7 @@ export const siguientesProductos = (valor) => async (dispatch, getState) => {
   export const paraFiltrarMayorP = (valor) => async (dispatch, getState) => {
   
   try {
-          const res = await  axios.get('http://localhost:5000/api/search/' + valor) // busqueda luego de q= + req.query.q + 
+          const res = await axios.get('http://localhost:5000/api/search/' + valor + '&limit=30') 
   
               dispatch({
               type:PARA_FILTRAR_MAYOR_PRECIO,

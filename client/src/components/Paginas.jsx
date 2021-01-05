@@ -6,6 +6,7 @@ import { siguientesProductos,
          siguientesProdFil,
          anterioresProdFil } 
          from '../redux/actions.js';
+import { Button } from '@material-ui/core';
 
 const Paginas = () => {
 
@@ -25,6 +26,7 @@ leyenda = null;
   
 return (
 <div>
+
 <div className="row">
 {productos.length > 0 ? productos.map((e) => (
 <div className="col s13 m6 l4 " key={e.id}>
@@ -63,16 +65,16 @@ permalink={e.permalink}
       
 {productos.length > 0 ? (
 <div style={{ textAlign: "center" }}>
-<button className="btn active cyan darken-3" onClick={() => dispatch(siguientesProductos(value))}>siguientes</button>
-<button className="btn active cyan darken-3" onClick={() => dispatch(anterioresProductos(value))}>anteriores</button>
+<Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>siguientes</Button>
+<Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>anteriores</Button>
 </div>
 ) 
 : null}
 
 {prodFiltrados.length > 0 && interruptor === false ? (
 <div style={{ textAlign: "center", position: "sticky"}}>
-<button className="btn active cyan darken-3" onClick={() => dispatch(siguientesProdFil(value))}>siguientes</button>
-<button className="btn active cyan darken-3" onClick={() => dispatch(anterioresProdFil(value))}>anteriores</button>
+<Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdFil(value))}>siguientes</Button>
+<Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdFil(value))}>anteriores</Button>
 </div>
 ) 
 : null}

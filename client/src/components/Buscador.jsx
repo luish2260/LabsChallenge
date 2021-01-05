@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { obtenerProductos } from '../redux/actions';
+import { Button } from '@material-ui/core';
 
 export class Buscador extends Component {
 constructor (props) {
@@ -38,7 +39,7 @@ return (
        placeholder="Buscar..." 
        className="autocomplete center-align  white lighten-2 col l12 m12 s12" />
 </div>
-<button type="submit" className="btn active cyan darken-3">BUSCAR</button>
+<Button type="submit" color='primary'>BUSCAR</Button>
 </form>
 </div>
 </div>
