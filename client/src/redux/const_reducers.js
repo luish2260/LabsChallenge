@@ -17,71 +17,84 @@ export const ANTERIORES_PRODUCTOS_FILTRADOS = 'ANTERIORES_PRODUCTOS_FILTRADOS';
 export const PARA_FILTRAR_MENOR_PRECIO = 'PARA_FILTRAR_MENOR_PRECIO';
 export const PARA_FILTRAR_MAYOR_PRECIO = 'PARA_FILTRAR_MAYOR_PRECIO';
 
-export default function searchReducer(state=dataInicial,action) { //searchReducer es importada en el store
-  switch(action.type) {
-  case OBTENER_PRODUCTOS:
-      return {
-          ...state, 
-          array: action.payload, 
-          value: action.value, 
-          interruptor: true
-      };
-  case SIGUIENTES_PRODUCTOS:
-      return {
-          ...state, 
-          array: action.payload.array, 
-          offset: action.payload.offset, 
-          value: action.payload.value
-      };
-  case SIGUIENTES_PRODUCTOS_FILTRADOS:
-      return {
-          ...state, 
-          resFiltrados: action.payload.resFiltrados, 
-          offsetFil: action.payload.offset, 
-          value: action.payload.value
-      };
-  case ANTERIORES_PRODUCTOS:
-      return {
-          ...state, 
-          array: action.payload.array, 
-          offset: action.payload.offset
-      };
-  case ANTERIORES_PRODUCTOS_FILTRADOS:
-      return {
-          ...state, 
-          resFiltrados: action.payload.resFiltrados, 
-          offsetFil: action.payload.offset
-      };
-  case PARA_FILTRAR_USADOS:
-      return {
-          ...state,  
-          resFiltrados: action.payload, 
-          value: action.value, 
-          interruptor: false
-      };
-  case PARA_FILTRAR_NUEVOS:
-          return {
-              ...state,  
-              resFiltrados: action.payload, 
-              value: action.value, 
-              interruptor: false 
-          };
-  case PARA_FILTRAR_MENOR_PRECIO:
-      return {
-          ...state,  
-          resFiltrados: action.payload, 
-          value: action.value, 
-          interruptor: false
-      };
-  case PARA_FILTRAR_MAYOR_PRECIO:
-          return {
-              ...state,  
-              resFiltrados: action.payload, 
-              value: action.value, 
-              interruptor: false
-          };
-  default:
-      return state;
+export default function searchReducer(state = dataInicial,action) { //searchReducer es importada en el store
+  
+switch(action.type) {
+  
+case OBTENER_PRODUCTOS:
+return {
+...state, 
+array: action.payload, 
+interruptor: true,
+value: action.value
+};
+  
+case SIGUIENTES_PRODUCTOS:
+return {
+...state, 
+array: action.payload.array, 
+offset: action.payload.offset, 
+value: action.value
+};
+  
+case ANTERIORES_PRODUCTOS:
+return {
+...state, 
+array: action.payload.array, 
+offset: action.payload.offset,
+value: action.value
+};
       
-  };
+case PARA_FILTRAR_USADOS:
+return {
+...state,  
+resFiltrados: action.payload, 
+interruptor: false,
+value: action.value
+};
+      
+case PARA_FILTRAR_NUEVOS:
+return {
+...state,  
+resFiltrados: action.payload, 
+interruptor: false,
+value: action.value 
+};
+  
+case SIGUIENTES_PRODUCTOS_FILTRADOS:
+return {
+...state, 
+resFiltrados: action.payload.resFiltrados, 
+offsetFil: action.payload.offset,
+value: action.value
+};
+  
+case ANTERIORES_PRODUCTOS_FILTRADOS:
+return {
+...state, 
+resFiltrados: action.payload.resFiltrados, 
+offsetFil: action.payload.offset,
+value:action.value
+};
+  
+case PARA_FILTRAR_MENOR_PRECIO:
+return {
+...state,  
+resFiltrados: action.payload, 
+interruptor: false,
+value: action.value
+};
+  
+case PARA_FILTRAR_MAYOR_PRECIO:
+return {
+...state,  
+resFiltrados: action.payload, 
+interruptor: false,
+value: action.value
+};
+
+default:
+return state;
+      
+};
 };

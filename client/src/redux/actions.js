@@ -36,7 +36,7 @@ const siguientes = offset + 30;
 
 try {
 
-const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') // busqueda luego de q= + req.query.q + 
+const res = await axios.get('http://localhost:5000/api/search/' + valor + '&offset=' + siguientes + '&limit=30') 
 dispatch({
 type:SIGUIENTES_PRODUCTOS,
 payload: { array:res.data.results, offset: siguientes },
