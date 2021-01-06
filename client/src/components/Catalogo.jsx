@@ -24,8 +24,6 @@ const Catalogo = () => {
      </ButtonGroup>
     </div>
    </div>
-   <div className="row">
-   </div>
    <div className="content">
     <div className="row"> {res ? <Paginas p={res.results} /> : null}
     </div>

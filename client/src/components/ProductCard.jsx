@@ -29,7 +29,7 @@ const ProductCard = (props) => {
     />
     <CardContent>
      <Typography gutterBottom variant="h5" component="h2">{props.title}</Typography>
-     <Typography variant="body2" color="textPrimary" component="p">${props.price} {props.currentId}</Typography>
+     <Typography variant="body2" color="textPrimary" component="p">{props.currentId} {props.price}</Typography>
      <Typography variant="body2" color="textPrimary" component="p">Stock: {props.availableQuantity}</Typography>
      <Typography variant="body2" color="textPrimary" component="p">Condición: {props.condition === 'new' ? 'Nuevo' : 'Usado'}</Typography>
     </CardContent>
