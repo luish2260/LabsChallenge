@@ -14,13 +14,10 @@ const Paginas = () => {
 
  const dispatch = useDispatch();
  var productos = useSelector((store) => store.productos.array);
- console.log(productos);
  var interruptor = useSelector((store) => store.productos.interruptor);
- console.log(productos);
  const prodFiltrados = useSelector((store) => store.productos.resFiltrados);
  const value = useSelector((store) => store.productos.value);
- console.log(value);
- var leyenda = (<h3 style={{ textAlign: "center", marginTop: "140px" }}>RESULTS</h3>);
+ var leyenda = (<h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTS</h2>);
  if (prodFiltrados.length > 0 && interruptor === false) {
   productos = false;
   leyenda = null;
@@ -66,7 +63,7 @@ const Paginas = () => {
     </div>
    </div>
    {productos.length > 0 ? (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", position: "sticky" }}>
      <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>NEXT</Button>
      <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>PREV</Button>
     </div>

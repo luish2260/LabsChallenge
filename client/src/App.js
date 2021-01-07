@@ -13,15 +13,15 @@ class App extends Component {
   const store = generateStore(); // CON ESTO GUARDO LA FUNCION DE GENERAR EL STORE EN UNA CONSTANTE
 
   return (
-
-   <Provider store={store}> {/*EN ESTE SECTOR USO LO DE REDUX, ENCAPSULA TODO EL COMPONENTE APP*/}
-    <Router>
-     <Route exact path="/" component={Buscador} />
-     <Route path="/" render={() => <Catalogo state={this.state} />} />
-     <Route exact path="/" component={Footer} />
-    </Router>
-   </Provider>
-
+   
+    <Provider store={store}> {/*EN ESTE SECTOR USO LO DE REDUX, ENCAPSULA TODO EL COMPONENTE APP*/}
+     <Router>
+      <Route exact path="/" component={Buscador} />
+      <Route path="/" render={() => <Catalogo state={this.state} />} />
+      <Route exact path="/" component={Footer} />
+     </Router>
+    </Provider>
+   
   );
  };
 };
