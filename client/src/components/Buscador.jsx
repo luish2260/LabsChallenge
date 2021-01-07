@@ -26,7 +26,6 @@ export class Buscador extends Component {
    <div>
     <nav className="row">
      <div className="blk col s8 push-s2">
-      {" "}
       <div className="center-align">
        <div className="blk input-field col s12">
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
@@ -54,12 +53,12 @@ function mapStateToProps(state) {
  return {
   products: state.array
  };
-}; //fin del map
+}; //fin del mapstate
 
 function mapDispatchToProps(dispatch) {
  return {
   obtenerProductos: (title) => dispatch(obtenerProductos(title))
  };
-}; //fin del map
+}; //fin del mapdispatch
 
 export default connect(mapStateToProps, mapDispatchToProps)(Buscador);
