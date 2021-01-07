@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { obtenerProductos } from '../redux/actions';
 import { Button } from '@material-ui/core';
-import { AppBar } from '@material-ui/core';
-import { Toolbar } from '@material-ui/core';
-
-
 
 export class Buscador extends Component {
  constructor(props) {
@@ -40,10 +36,10 @@ export class Buscador extends Component {
            autoComplete="off"
            value={title}
            onChange={(e) => this.handleChange(e)}
-           placeholder="Buscar..."
+           placeholder="Ingrese búsqueda"
            className="autocomplete center-align  white lighten-2 col l12 m12 s12" />
+          <Button type="submit" color='secondary' variant='contained'>BUSCAR</Button>
          </div>
-         <Button type="submit" color='primary' variant='contained'>BUSCAR</Button>
         </form>
        </div>
       </div>
