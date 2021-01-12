@@ -26,7 +26,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         array: action.payload,
         interruptor: true,
-        value:action.value
+        value: action.value
       };
 
     case SIGUIENTES_PRODUCTOS:
@@ -34,7 +34,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         array: action.payload.array,
         offset: action.payload.offset,
-        value:action.value
+        value: action.value
       };
 
     case ANTERIORES_PRODUCTOS:
@@ -42,7 +42,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         array: action.payload.array,
         offset: action.payload.offset,
-        value:action.value
+        value: action.value
       };
 
     case PARA_FILTRAR_USADOS:
@@ -50,7 +50,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         resFiltrados: action.payload,
         interruptor: false,
-        value:action.value
+        value: action.value
       };
 
     case PARA_FILTRAR_NUEVOS:
@@ -58,7 +58,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         resFiltrados: action.payload,
         interruptor: false,
-        value:action.value
+        value: action.value
       };
 
     case SIGUIENTES_PRODUCTOS_FILTRADOS:
@@ -67,7 +67,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         resFiltrados: action.payload.resFiltrados,
         offsetFil: action.payload.offset,
         interruptor: false,
-        value:action.value
+        value: action.value
       };
 
     case ANTERIORES_PRODUCTOS_FILTRADOS:
@@ -76,7 +76,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         resFiltrados: action.payload.resFiltrados,
         offsetFil: action.payload.offset,
         interruptor: false,
-        value:action.value
+        value: action.value
 
       };
 
@@ -85,7 +85,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         resFiltrados: action.payload,
         interruptor: false,
-        value:action.value
+        value: action.value
       };
 
     case PARA_FILTRAR_MAYOR_PRECIO:
@@ -93,7 +93,7 @@ export default function searchReducer(state = dataInicial, action) { //searchRed
         ...state,
         resFiltrados: action.payload,
         interruptor: false,
-        value:action.value
+        value: action.value
       };
 
     default:
