@@ -8,8 +8,8 @@ const dataInicial = {
   value: [], //general
   arrayMayor: [], //a determinar
   arrayMenor: [], //a determinar
-  interruptor1: false, //general
-  interruptor2: false //general
+  interruptor1: true, //general
+  interruptor2: true //general
 };
 
 export const OBTENER_PRODUCTOS_GENERAL = 'OBTENER_PRODUCTOS_GENERAL';
@@ -17,20 +17,18 @@ export const SIGUIENTES_PRODUCTOS_GENERAL = 'SIGUIENTES_PRODUCTOS_GENERAL';
 export const ANTERIORES_PRODUCTOS_GENERAL = 'ANTERIORES_PRODUCTOS_GENERAL';
 export const PARA_FILTRAR_MENOR_PRECIO_GENERAL = 'PARA_FILTRAR_MENOR_PRECIO_GENERAL';
 export const PARA_FILTRAR_MAYOR_PRECIO_GENERAL = 'PARA_FILTRAR_MAYOR_PRECIO_GENERAL';
-
 export const PARA_FILTRAR_USADOS = 'PARA_FILTRAR_USADOS';
 export const SIGUIENTES_PRODUCTOS_USADOS = 'SIGUIENTES_PRODUCTOS_USADOS';
 export const ANTERIORES_PRODUCTOS_USADOS = 'ANTERIORES_PRODUCTOS_USADOS';
 export const PARA_FILTRAR_MENOR_PRECIO_USADO = 'PARA_FILTRAR_MENOR_PRECIO_USADO';
 export const PARA_FILTRAR_MAYOR_PRECIO_USADO = 'PARA_FILTRAR_MAYOR_PRECIO_USADO';
-
 export const PARA_FILTRAR_NUEVOS = 'PARA_FILTRAR_NUEVOS';
 export const SIGUIENTES_PRODUCTOS_NUEVOS = 'SIGUIENTES_PRODUCTOS_NUEVOS';
 export const ANTERIORES_PRODUCTOS_NUEVOS = 'ANTERIORES_PRODUCTOS_NUEVOS';
 export const PARA_FILTRAR_MENOR_PRECIO_NUEVO = 'PARA_FILTRAR_MENOR_PRECIO_NUEVO';
 export const PARA_FILTRAR_MAYOR_PRECIO_NUEVO = 'PARA_FILTRAR_MAYOR_PRECIO_NUEVO';
 
-export default function searchReducer(state = dataInicial, action) { //searchReducer es importada en el store
+export default function searchReducer(state = dataInicial, action) {
 
   switch (action.type) {
 

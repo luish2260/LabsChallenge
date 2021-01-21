@@ -8,9 +8,9 @@ import generateStore from './redux/store';
 
 class App extends Component {
   render() {
-    const store = generateStore(); // CON ESTO GUARDO LA FUNCION DE GENERAR EL STORE EN UNA CONSTANTE
+    const store = generateStore();
     return (
-      <Provider store={store}> {/*EN ESTE SECTOR USO LO DE REDUX, ENCAPSULA TODO EL COMPONENTE APP*/}
+      <Provider store={store}>
         <Router>
           <Route exact path="/" component={Buscador} />
           <Route path="/" render={() => <Catalogo state={this.state} />} />
