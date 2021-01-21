@@ -6,7 +6,7 @@ let objCache = {};
 let name; //objCache[name]
 
 app.use(cors());
-//ruta para busqueda en general
+
 app.get('/api/search/:q', (req, res) => {
   name = req.params.q;
   if (false) {
