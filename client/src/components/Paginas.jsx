@@ -1,27 +1,27 @@
 import React from "react";
 import ProductCard from './ProductCard.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { siguientesProductos, anterioresProductos } from '../redux/actions.js';
+import { siguientesProductos, anterioresProductos, siguientesProdNuevos, anterioresProdNuevos, anterioresProdUsados, siguientesProdUsados } from '../redux/actions.js';
 import { Button } from '@material-ui/core';
 
 const Paginas = () => {
 
   const dispatch = useDispatch();
-  var interruptor1 = useSelector((store) => store.productos.interruptor1);
-  var interruptor2 = useSelector((store) => store.productos.interruptor2);
-  var productos = useSelector((store) => store.productos.array);
-  var prodNuevos = useSelector((store) => store.productos.arrayNew);
-  var prodUsados = useSelector((store) => store.productos.arrayUsed);
-  var value = useSelector((store) => store.productos.value);
-  var leyenda = (<h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTS</h2>);
-  if ((prodNuevos.length > 0 || prodUsados.length > 0) && interruptor1 === false) {
-    productos = false; //para que no se muestren los productos generales
-    leyenda = null; //con esto se cancela la variable anterior, que muestra RESULTS
-  }; //fin del if
+  let interruptor1 = useSelector((store) => store.productos.interruptor1);
+  let interruptor2 = useSelector((store) => store.productos.interruptor2);
+  let productos = useSelector((store) => store.productos.array);
+  let prodNuevos = useSelector((store) => store.productos.arrayNew);
+  let prodUsados = useSelector((store) => store.productos.arrayUsed);
+  let value = useSelector((store) => store.productos.value);
+  /* if ((prodNuevos.length > 0 || prodUsados.length > 0) && interruptor1 === false)
+    productos = false; */
 
   return (
     <div>
-      {productos.length > 0 ? (
+      <div>
+        <h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTS</h2>
+      </div>
+      {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>PREV</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>NEXT</Button>
@@ -30,21 +30,21 @@ const Paginas = () => {
         : null}
       {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained'>PREV NUEVOS</Button>
-          <Button color='primary' variant='contained'>NEXT NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>PREV NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>NEXT NUEVOS</Button>
         </div>
       )
         : null}
       {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained'>PREV USADOS</Button>
-          <Button color='primary' variant='contained'>NEXT USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>PREV USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>NEXT USADOS</Button>
         </div>
       )
         : null}
       <div class='container'>
         <div className="row">
-          {productos.length > 0 ? productos.map((e) => (
+          {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? productos.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
                 img={e.thumbnail}
@@ -56,7 +56,8 @@ const Paginas = () => {
                 permalink={e.permalink}
               />
             </div>
-          )) : leyenda}
+          ))
+            : null}
         </div>
         <div className="row">
           {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? prodNuevos.map((e) => (
@@ -71,7 +72,8 @@ const Paginas = () => {
                 permalink={e.permalink}
               />
             </div>
-          )) : null}
+          ))
+            : null}
         </div>
         <div className="row">
           {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? prodUsados.map((e) => (
@@ -90,7 +92,7 @@ const Paginas = () => {
             : null}
         </div>
       </div>
-      {productos.length > 0 ? (
+      {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>PREV</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>NEXT</Button>
@@ -99,15 +101,15 @@ const Paginas = () => {
         : null}
       {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained'>PREV NUEVOS</Button>
-          <Button color='primary' variant='contained'>NEXT NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>PREV NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>NEXT NUEVOS</Button>
         </div>
       )
         : null}
       {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained'>PREV USADOS</Button>
-          <Button color='primary' variant='contained'>NEXT USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>PREV USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>NEXT USADOS</Button>
         </div>
       )
         : null}
