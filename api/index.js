@@ -6,7 +6,6 @@ let objCache = {};
 let name; //objCache[name]
 
 app.use(cors());
-
 //ruta para busqueda en general
 app.get('/api/search/:q', (req, res) => {
   name = req.params.q;
@@ -24,44 +23,6 @@ app.get('/api/search/:q', (req, res) => {
       });
   }
 });
-
-/* //SOLO USADOS
-app.get('/api/search/used/:q', (req, res) => {
-  name = req.params.q;
-  if (objCache[name]) {
-    console.log('GET request to CACHE');
-    res.json(objCache[name]);
-  }
-  else {
-    console.log('GET request to API');
-    fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + req.params.q)
-      .then(res => res.json())
-      .then(data => {
-        objCache[name] = data;
-        console.log(objCache[name]);
-        res.json(data);
-      });
-  }
-});
-
-//SOLO NUEVOS
-app.get('/api/search/new/:q', (req, res) => {
-  name = req.params.q;
-  if (objCache[name]) {
-    console.log('GET request to CACHE');
-    res.json(objCache[name]);
-  }
-  else {
-    console.log('GET request to API');
-    fetch('https://api.mercadolibre.com/sites/MLA/search?q=' + req.params.q)
-      .then(res => res.json())
-      .then(data => {
-        objCache[name] = data;
-        console.log(objCache[name]);
-        res.json(data);
-      });
-  }
-}); */
 
 app.listen(5000, () => {
   console.log('Server up on port 5000');
