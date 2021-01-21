@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { obtenerProductos } from '../redux/actions';
 import { Button } from '@material-ui/core';
 
-export class Buscador extends Component {
+class Buscador extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,10 +36,8 @@ export class Buscador extends Component {
                       value={title}
                       onChange={(e) => this.handleChange(e)}
                       placeholder="Ingrese búsqueda"
-                      className="autocomplete center-align  white lighten-2 col l12 m12 s12" />
-                    <div>
-                      <Button type="submit" color='secondary' variant='contained'>BUSCAR</Button>
-                    </div>
+                      className="autocomplete center-align white lighten-2 col l12 m12 s12" />
+                    <Button type="submit" color='primary' variant='contained'>BUSCAR</Button>
                   </div>
                 </form>
               </div>
