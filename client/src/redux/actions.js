@@ -211,7 +211,6 @@ export const paraFiltrarMayorP = (value) => async (dispatch, getState) => {
     console.log(err);
   };
 };
-
 //PRECIO DE MAYOR A MENOR USADO
 export const paraFiltrarMayorPUsado = (value) => async (dispatch, getState) => {
   try {
@@ -226,7 +225,6 @@ export const paraFiltrarMayorPUsado = (value) => async (dispatch, getState) => {
     console.log(err);
   };
 };
-
 //PRECIO DE MAYOR A MENOR NUEVO
 export const paraFiltrarMayorPNuevo = (value) => async (dispatch, getState) => {
   try {

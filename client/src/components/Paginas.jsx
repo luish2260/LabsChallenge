@@ -19,26 +19,26 @@ const Paginas = () => {
   return (
     <div>
       <div>
-        <h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTS</h2>
+        <h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTADOS</h2>
       </div>
       {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>PREV</Button>
-          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>NEXT</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>ANT</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>SIG</Button>
         </div>
       )
         : null}
       {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>PREV NUEVOS</Button>
-          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>NEXT NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>ANT NUEVOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>SIG NUEVOS</Button>
         </div>
       )
         : null}
       {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? (
         <div style={{ textAlign: "center", position: "sticky" }}>
-          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>PREV USADOS</Button>
-          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>NEXT USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>ANT USADOS</Button>
+          <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>SIG USADOS</Button>
         </div>
       )
         : null}
