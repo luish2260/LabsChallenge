@@ -42,8 +42,8 @@ const Paginas = () => {
         </div>
       )
         : null}
-      <div class='container'>
-        <div className="row">
+      <div className='container'>
+        <div className="column">
           {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? productos.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
@@ -59,7 +59,7 @@ const Paginas = () => {
           ))
             : null}
         </div>
-        <div className="row">
+        <div className="column">
           {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? prodNuevos.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
@@ -75,7 +75,7 @@ const Paginas = () => {
           ))
             : null}
         </div>
-        <div className="row">
+        <div className="column">
           {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? prodUsados.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
