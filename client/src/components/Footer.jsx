@@ -1,4 +1,5 @@
 import { AiFillGithub } from "react-icons/ai";
+import './Footer.css';
 export default function Footer() {
   return (
     <footer className="page-footer card-panel cyan darken-3">

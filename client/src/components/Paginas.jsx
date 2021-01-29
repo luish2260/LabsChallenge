@@ -3,6 +3,7 @@ import ProductCard from './ProductCard.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { siguientesProductos, anterioresProductos, siguientesProdNuevos, anterioresProdNuevos, anterioresProdUsados, siguientesProdUsados } from '../redux/actions.js';
 import { Button } from '@material-ui/core';
+import './Paginas.css';
 
 const Paginas = () => {
 

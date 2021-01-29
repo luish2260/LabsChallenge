@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { obtenerProductos } from '../redux/actions';
 import { Button } from '@material-ui/core';
+import './Buscador.css';
 
 class Buscador extends Component {
   constructor(props) {

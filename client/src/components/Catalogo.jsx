@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { obtenerProductos, paraFiltrarMenorP, paraFiltrarMayorP, paraFiltrarUsados, paraFiltrarNuevos, paraFiltrarMenorPNuevo, paraFiltrarMenorPUsado, paraFiltrarMayorPNuevo, paraFiltrarMayorPUsado } from '../redux/actions.js';
 import { Button } from '@material-ui/core';
 import { ButtonGroup } from '@material-ui/core';
+import './Catalogo.css';
 
 const Catalogo = () => {
   const value = useSelector(store => store.productos.value);
