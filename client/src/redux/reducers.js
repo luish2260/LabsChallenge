@@ -6,8 +6,6 @@ const dataInicial = {
   offsetUsed: 0, //usados
   offsetNew: 0, //nuevos
   value: [], //general
-  arrayMayor: [], //a determinar
-  arrayMenor: [], //a determinar
   interruptor1: true, //general
   interruptor2: true //general
 };
