@@ -9,7 +9,7 @@ export default function Footer() {
             <h5 className="white-text">Contacto:</h5>
             <ul>
               <li>
-                <a className="grey-text text-lighten-3" href="https://github.com/luish2260"><AiFillGithub className="grey-text text-darken-3 icon" />GitHub:luish2260</a>
+                <a className="grey-text text-lighten-3" href="https://github.com/luish2260"><AiFillGithub className="grey-text text-darken-3 icon" />GitHub: luish2260</a>
               </li>
             </ul>
           </div>
