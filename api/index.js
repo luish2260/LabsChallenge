@@ -4,13 +4,13 @@ const fetch = require('node-fetch');
 const app = express();
 let objCache = {};
 let name;
-
+//objCache[name]
 app.use(cors());
 
 app.get('/api/search/:q', (req, res) => {
   name = req.params.q;
-  if (false) {
-    console.log('GET request to CACHE'); //objCache[name]
+  if (objCache[name]) {
+    console.log('GET request to CACHE');
     res.json(objCache[name]);
   }
   else {

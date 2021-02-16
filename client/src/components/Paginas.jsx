@@ -14,8 +14,6 @@ const Paginas = () => {
   let prodNuevos = useSelector((store) => store.productos.arrayNew);
   let prodUsados = useSelector((store) => store.productos.arrayUsed);
   let value = useSelector((store) => store.productos.value);
-  /* if ((prodNuevos.length > 0 || prodUsados.length > 0) && interruptor1 === false)
-    productos = false; */
 
   return (
     <div>
