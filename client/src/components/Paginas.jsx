@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import ProductCard from './ProductCard.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { siguientesProductos, anterioresProductos, siguientesProdNuevos, anterioresProdNuevos, anterioresProdUsados, siguientesProdUsados } from '../redux/actions.js';
@@ -18,31 +18,34 @@ const Paginas = () => {
   return (
     <div>
       <div>
-        <h2 style={{ textAlign: "center", marginTop: "140px" }}>RESULTADOS</h2>
+        <h2 style={{ textAlign: 'center', marginTop: '140px' }}>RESULTADOS</h2>
       </div>
+      {/* BOTONES INFERIORES */}
       {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>ANT</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>SIG</Button>
         </div>
       )
         : null}
       {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>ANT NUEVOS</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>SIG NUEVOS</Button>
         </div>
       )
         : null}
       {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>ANT USADOS</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>SIG USADOS</Button>
         </div>
       )
         : null}
+      {/* CARDS */}
       <div className='container'>
-        <div className="column">
+        {/* PRODUCTOS GENERALES */}
+        <div className='column'>
           {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? productos.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
@@ -58,7 +61,8 @@ const Paginas = () => {
           ))
             : null}
         </div>
-        <div className="column">
+        {/* PRODUCTOS NUEVOS */}
+        <div className='column'>
           {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? prodNuevos.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
@@ -74,7 +78,8 @@ const Paginas = () => {
           ))
             : null}
         </div>
-        <div className="column">
+        {/* PRODUCTOS USADOS */}
+        <div className='column'>
           {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? prodUsados.map((e) => (
             <div className="col s13 m6 l4 " key={e.id}>
               <ProductCard
@@ -91,22 +96,23 @@ const Paginas = () => {
             : null}
         </div>
       </div>
+      {/* BOTONES INFERIORES */}
       {(productos.length > 0 && interruptor1 === true && interruptor2 === true) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProductos(value))}>PREV</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProductos(value))}>NEXT</Button>
         </div>
       )
         : null}
       {(prodNuevos.length > 0 && interruptor1 === false && interruptor2 === false) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdNuevos(value))}>PREV NUEVOS</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdNuevos(value))}>NEXT NUEVOS</Button>
         </div>
       )
         : null}
       {(prodUsados.length > 0 && interruptor1 === false && interruptor2 === true) ? (
-        <div style={{ textAlign: "center", position: "sticky" }}>
+        <div style={{ textAlign: 'center', position: 'sticky' }}>
           <Button color='primary' variant='contained' onClick={() => dispatch(anterioresProdUsados(value))}>PREV USADOS</Button>
           <Button color='primary' variant='contained' onClick={() => dispatch(siguientesProdUsados(value))}>NEXT USADOS</Button>
         </div>
