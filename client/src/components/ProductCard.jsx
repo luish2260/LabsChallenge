@@ -11,15 +11,12 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 350,
   },
-  media: {
-    height: 150,
-  }
 });
 
 const ProductCard = (props) => {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} /* variant="outlined" */ >
       <CardActionArea>
         <CardMedia
           component="img"
