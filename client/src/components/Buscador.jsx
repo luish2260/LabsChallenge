@@ -50,13 +50,13 @@ class Buscador extends Component {
   }; //fin del render
 }; //fin de class
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     products: state.array
   };
 }; //fin del mapstate
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     obtenerProductos: (title) => dispatch(obtenerProductos(title))
   };

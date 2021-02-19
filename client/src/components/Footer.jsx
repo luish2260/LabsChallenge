@@ -1,6 +1,6 @@
 import { AiFillGithub } from "react-icons/ai";
 import './Footer.css';
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="page-footer card-panel cyan darken-3">
       <div className="container">
@@ -18,3 +18,5 @@ export default function Footer() {
     </footer>
   );
 };
+
+export default Footer;
