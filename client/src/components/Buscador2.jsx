@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { obtenerProductos } from '../redux/actions';
 import { Button } from '@material-ui/core';
